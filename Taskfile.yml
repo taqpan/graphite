@@ -1,0 +1,23 @@
+version: '3'
+
+tasks:
+  up:
+    cmds:
+      - docker compose down
+      - docker compose -f "./compose.yml" up -d
+
+  down:
+    cmds:
+      - docker compose down
+
+  shell:
+    cmds:
+      - docker compose exec app /bin/bash
+
+  npm:
+    cmds:
+      - docker compose exec app npm {{.CLI_ARGS}}
+
+  logs:
+    cmds:
+      - docker compose logs -f

@@ -1,0 +1,9 @@
+services:
+  app:
+    build:
+      context: ./docker/dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/work
+    command: npm run dev
